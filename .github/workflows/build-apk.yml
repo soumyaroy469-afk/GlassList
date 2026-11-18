@@ -1,11 +1,16 @@
-name: Build Glass List APK
+
+name: Build GlassList APK
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -36,3 +41,4 @@ jobs:
           name: GlassList-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+          
